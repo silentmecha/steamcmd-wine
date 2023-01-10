@@ -6,7 +6,7 @@
 # silentmecha/steamcmd-wine
 
 A base image of SteamCMD with [WINE](https://www.winehq.org/) for downloading and running Steam games
-and game server software that requires windows. The image is build automatically every 6 hours with
+and game server software that requires windows. The image is built automatically every 6 hours with
 [Github Actions](https://github.com/silentmecha/steamcmd-wine/actions) and pushed to [Docker Hub](https://hub.docker.com/).
 
 ## Usage
