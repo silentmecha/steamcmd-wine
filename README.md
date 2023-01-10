@@ -1,6 +1,7 @@
 [![Build Image](https://github.com/silentmecha/steamcmd-wine/actions/workflows/build.yml/badge.svg)](https://github.com/silentmecha/steamcmd-wine/actions/workflows/build.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/silentmecha/steamcmd-wine.svg)](https://hub.docker.com/r/silentmecha/steamcmd-wine)
 [![Image Size](https://img.shields.io/docker/image-size/silentmecha/steamcmd-wine/latest.svg)](https://hub.docker.com/r/silentmecha/steamcmd-wine)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 # silentmecha/steamcmd-wine
 
