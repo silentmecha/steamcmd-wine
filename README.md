@@ -5,7 +5,7 @@
 
 # silentmecha/steamcmd-wine
 
-A base image of SteamCMD with [WINE](https://www.winehq.org/) for downloading and running Steam games
+A base image of SteamCMD with [WINE](https://www.winehq.org/) for downloading and running Steam game servers
 and game server software that requires windows. The image is built automatically every 6 hours with
 [Github Actions](https://github.com/silentmecha/steamcmd-wine/actions) and pushed to [Docker Hub](https://hub.docker.com/).
 
@@ -19,13 +19,13 @@ docker pull silentmecha/steamcmd-wine:latest
 ```shell
 docker run -it silentmecha/steamcmd-wine:latest /bin/sh
 ```
-### Download CSGO
+### Download PixARK server
 ```shell
-docker run -it silentmecha/steamcmd-wine:latest /bin/sh steamcmd +login anonymous +app_update 740 +quit
+docker run -it silentmecha/steamcmd-wine:latest /bin/sh steamcmd +@sSteamCmdForcePlatformType windows +login anonymous +app_update 824360 +quit
 ```
-### Download CSGO to local mounted directory "data"
+### Download PixARK server to local mounted directory "data"
 ```shell
-docker run -it -v $PWD:/data silentmecha/steamcmd-wine:latest /bin/sh steamcmd +login anonymous +force_install_dir /data +app_update 740 +quit
+docker run -it -v $PWD:/data silentmecha/steamcmd-wine:latest /bin/sh steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /data +login anonymous +app_update 824360 validate +quit
 ```
 
 ## License
