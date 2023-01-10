@@ -1,10 +1,12 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
 LABEL maintainer="silent@silentmecha.co.za"
 ARG PUID=1000
 
 ENV USER steam
 ENV HOME "/home/${USER}"
+ENV BACKUP_DAILY_LIM 5
+ENV BACKUP_HOURLY_LIM 5
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -16,6 +18,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Clean TMP, apt-get cache and other stuff to make the image smaller
 # Add unicode support
 # Update SteamCMD and verify latest version
+# Copy in ssq and healthcheck.sh
 
 RUN echo steam steam/question select "I AGREE" | debconf-set-selections \
 	&& echo steam steam/license note '' | debconf-set-selections
@@ -39,6 +42,8 @@ RUN set -x \
 		libwine \
 		libwine:i386 \
 		fonts-wine \
+		jq \
+		tzdata \
 	&& apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -52,5 +57,9 @@ WORKDIR ${HOME}
 
 RUN su "${USER}" -c \
     "steamcmd +quit"
+
+COPY ./src/ssq ${HOME}/ssq
+
+COPY ./src/healthcheck.sh ${HOME}/healthcheck.sh
 
 USER ${USER}
